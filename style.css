@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+@theme {
+    --color-brand-dark: #1e3a8a;
+    --color-brand-accent: #3b82f6;
+    --color-brand-bg: #f8fafc;
+}
+
+@layer base {
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        @apply antialiased selection:bg-brand-accent selection:text-white;
+    }
+}
+
+/* --- Para que la barra no de problemas --- */
+
+#scroll-container {
+    scrollbar-gutter: stable;
+}
+
+/* compatibilidad en otros navegadores*/
+#scroll-container::-webkit-scrollbar,
+.custom-scroll::-webkit-scrollbar {
+    width: 12px;
+    display: block !important;
+}
+
+#scroll-container::-webkit-scrollbar-track,
+.custom-scroll::-webkit-scrollbar-track {
+    background: #e2e8f0; 
+    border-radius: 2rem;
+}
+
+#scroll-container::-webkit-scrollbar-thumb,
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #7c3aed;
+    border-radius: 10px;
+    border: 3px solid #e2e8f0; /* Efecto de padding interno */
+}
+
+#scroll-container::-webkit-scrollbar-thumb:hover,
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #6d28d9; 
+}
+
+/* Soporte para Firefox */
+#scroll-container, .custom-scroll {
+    scrollbar-width: auto;
+    scrollbar-color: #7c3aed #e2e8f0;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#crypto-grid > div {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/*Sidebar hover transition */
+#sidebar {
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
